@@ -1,12 +1,13 @@
-# %%
-cd ../SAMPL9/New_Work/Water_Solvated/1st_Simulation/SAMPL9-1/
+# Load Modules
 
-# %%
 import MDAnalysis as mda
 from MDAnalysis.analysis.base import AnalysisFromFunction
 from MDAnalysis.coordinates.memory import MemoryReader
+from CodeEntropy.FunctionCollection import EntropyFunctions as EF
+from CodeEntropy.ClassCollection import DataContainer as DC
+from CodeEntropy.IO import MDAUniverseHelper as MDAHelper
+from CodeEntropy.ClassCollection.PoseidonClass import Poseidon
 
-# %%
 #Load your data into a MDAnalysis Universe
 
 topo_file = "molecules.top"
@@ -30,60 +31,7 @@ u2 = mda.Merge(select_atom)
 
 u2.load_new(coordinates, format=MemoryReader, forces=forces, dimensions=dimensions)
 
-# %%
-#parse the data into a CodeEntropy data object
-
-from CodeEntropy.ClassCollection import DataContainer as DC
-from CodeEntropy.IO import MDAUniverseHelper as MDAHelper
-start = 0
-end = 2000
-step = 1
-reduced_frame = MDAHelper.new_U_select_frame(u2,  start, end, step)
-selection_string = "resname MOL" # reduce the ststem first when calculating for solute part but do remember to include the solvent part during solven calculation
-reduced_atom = MDAHelper.new_U_select_atom(reduced_frame, selection_string)
-
-dataContainer = DC.DataContainer(reduced_atom)
-
-# %%
-#Set Parameters for entropy calculations
-
-from CodeEntropy.FunctionCollection import EntropyFunctions as EF
-from CodeEntropy.ClassCollection import DataContainer as DC
-from CodeEntropy.IO import MDAUniverseHelper as MDAHelper
-#Only the part of interest remained
-selection_string = "all"
-axis_list = ["C1", "C2", "C3"]  #DC: the atom name is not C1' but C1 etc.
-outfile = 'S_Config.txt'
-moutFile = None
-nmdFile = None
-csv_out = None
-tScale = 1.0
-fScale = 1.0
-temper = 300.0 #K
-verbose = 3
-thread = 4
-
-# %%
-#Side chain topographical entropy at United Atom
-
-result_topo_SC = EF.compute_topographical_entropy0_SC(
-    arg_hostDataContainer = dataContainer,
-    arg_selector = selection_string,
-    arg_outFile = outfile,
-    arg_verbose = verbose
-)
-
-#with open ('S_Config.txt', 'w') as f:
-#    print(f'result_topo_SC', file=f)
-#    f.write(f'{result_topo_SC}')
-
-# %%
 #Set Parameters for entropy calculations at ML and UA
-
-from CodeEntropy.FunctionCollection import EntropyFunctions as EF
-from CodeEntropy.ClassCollection import DataContainer as DC
-from CodeEntropy.IO import MDAUniverseHelper as MDAHelper
-#Only the part of interest remained
 selection_string = "all"
 axis_list = ["C1", "C2", "C3"]  #DC: the atom name is not C1' but C1 etc.
 outfile = None
@@ -135,13 +83,9 @@ with open ('S_Vib.csv', 'w') as f:
     print(f'wm_entropyFF, wm_entropyTT, UA_entropyFF, UA_entropyTT, total', file=f)
     f.write(f' {wm_entropyFF}, {wm_entropyTT}, {UA_entropyFF}, {UA_entropyTT}, {total}')
 
-# %%
 # Load data into POSEIDON
-
-from CodeEntropy.ClassCollection.PoseidonClass import Poseidon
 poseidon_object = Poseidon(container=u2, start=0, end=2000, step=1)
 
-# %%
 # Calculate Whole Molecule level
 
 result_wm = poseidon_object.run_analysis(level_list = ['moleculeLevel'], verbose=False, forceUnits="Kcal") # this is because the forces value supplied in this trajectory is in Kcal
