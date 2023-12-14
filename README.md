@@ -1,4 +1,7 @@
 # Energy-entropy multiscale cell correlation method to predict toluene–water log P in the SAMPL9 challenge
+
+<img width="392" alt="image" src="https://github.com/HafizSaqibAli/SAMPL9/assets/88040364/4daf7b39-8393-4470-a4c7-06b138377474">
+
 The energy-entropy multiscale cell correlation (EE-MCC) method is used to calculate toluene–water log P 
 values of 16 drug molecules in the SAMPL9 physical properties challenge. EE-MCC calculates the free energy, 
 energy and entropy from molecular dynamics (MD) simulations of the water and toluene solutions. Specifically, 
