@@ -1,0 +1,11 @@
+tolerance 2.0
+filetype pdb
+output SAMPL9-8_Com.pdb
+structure SAMPL9-8_mol.pdb
+ centerofmass
+ fixed 0. 0. 0. .0 .0 .0
+end structure
+structure ../Toluene.pdb
+number 500
+inside box -20. -20. -20. 20. 20. 20.
+end structure

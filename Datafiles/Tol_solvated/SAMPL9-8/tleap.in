@@ -1,0 +1,14 @@
+source leaprc.water.tip3p
+source leaprc.gaff2
+mol = loadmol2 8.mol2
+loadamberparams 8.frcmod
+TOL = loadmol2 ../Toluene.mol2
+loadamberparams ../Toluene.frcmod
+mol = loadpdb 8_Com.pdb
+addions mol Na+ 0 
+addions mol Cl- 0 
+setbox mol centers 
+saveoff mol mol.lib 
+saveamberparm mol 8_solv.prmtop 8_solv.inpcrd
+savepdb mol 8_solv.pdb
+quit
