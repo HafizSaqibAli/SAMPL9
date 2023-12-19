@@ -1,0 +1,20 @@
+Equilibration: Langevin Thermostat 200ps Heat (NVT)
+ &cntrl
+  imin     = 0,		! Run MD without any minimisation
+  irest    = 0,		! Run as a new simulation
+  ntx      = 1,		! Read coordinates, but not velocities
+  ntb      = 1,		! Periodic boundary conditions are employed, with constant volume
+  cut      = 10,	! Non bonded cutoff 10 Å
+  ntr      = 0,		! Restraints off
+  ntc      = 2,		! SHAKE on, bonds involving hydrogen are constrained
+  ntf      = 2,		! Related to SHAKE, equals ntc
+  tempi    = 0.0,	! Initial Temperature (K)
+  temp0    = 298.15,	! Final Temperature (300 K)
+  ntt      = 3,		! Langevin thermostat
+  gamma_ln = 5.0,	! Ccollision frequency of 5.0 ps-1,
+  nstlim   = 100000,	! Number of MD steps (100000 steps for 200 ps equilibration)
+  dt       = 0.002,	! Timestep 2 fs, use with SHAKE
+  ntpr     = 1000,	! Print energy info to mdout and mdinfo every 1000 steps
+  ntwx     = 1000,	! Write coordinates every 1000 steps (2 ps for 2 fs step)
+  ntwr     = 1000	! Write mdout and mdinfo files every 1000 steps
+ /

@@ -1,0 +1,12 @@
+Minimisation template, 2000 steps steepest descent 
+ &cntrl
+  imin = 1,		! Perform energy minimisation
+  maxcyc = 2000,	! Number of minimisation steps
+  ntmin = 2,		! Method of minimisation
+  ncyc = 2000,		! Number of steepest descent steps
+  ntpr = 100,		! Frequency for writing mdout and mdinfo
+  ntwx = 100,		! Write coordinates every 100 steps (0.2 ps for 2 fs step)
+  ntb = 1,		! Constant volume periodic boundries              
+  ntr = 0,		! Restraints off
+  cut = 10.0		! Non-bonded cutoff (Angstroms)
+ /
