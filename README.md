@@ -5,6 +5,7 @@
 </p>
 
 # Abstract
+<p style="text-align:justify">
 The energy-entropy multiscale cell correlation (EE-MCC) method is used to calculate toluene–water log P 
 values of 16 drug molecules in the SAMPL9 physical properties challenge. EE-MCC calculates the free energy, 
 energy and entropy from molecular dynamics (MD) simulations of the water and toluene solutions. Specifically, 
@@ -21,6 +22,7 @@ and statistical fluctuations meant that only the first shell could be included w
 Nonetheless, such issues will be addressed in future software to offer a general method to calculate entropy directly 
 from MD simulation and to provide molecular understanding or guide system design.
 
+</p>
 
 https://doi.org/10.1039/D3CP03076H
 
