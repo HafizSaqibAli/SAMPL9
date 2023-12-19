@@ -1,0 +1,12 @@
+source leaprc.water.tip3p
+source leaprc.gaff2
+mol = loadmol2 16.mol2
+loadamberparams 16.frcmod
+mol = loadpdb 16_Com.pdb
+addions mol Na+ 0 
+addions mol Cl- 0 
+setbox mol centers 
+saveoff mol mol.lib 
+saveamberparm mol 16_solv.prmtop 16_solv.inpcrd
+savepdb mol 16_solv.pdb
+quit
