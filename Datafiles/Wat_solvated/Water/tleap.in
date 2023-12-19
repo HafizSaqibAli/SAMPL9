@@ -1,0 +1,10 @@
+source leaprc.water.tip3p
+
+WAT = loadpdb Water_Box.pdb
+#addions mol Na+ 0 
+#addions mol Cl- 0 
+setbox WAT centers 
+saveoff WAT WAT.lib 
+saveamberparm WAT Water_solv.prmtop Water_solv.inpcrd
+savepdb WAT Water_solv.pdb
+quit

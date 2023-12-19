@@ -1,0 +1,7 @@
+tolerance 2.0
+filetype pdb
+output Water_Box.pdb
+structure Water.pdb
+number 1500
+inside box -18. -18. -18. 18. 18. 18.
+end structure
