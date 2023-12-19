@@ -1,0 +1,11 @@
+tolerance 2.0
+filetype pdb
+output SAMPL9-5_Com.pdb
+structure SAMPL9-5_mol.pdb
+ centerofmass
+ fixed 0. 0. 0. .0 .0 .0
+end structure
+structure ../Water.pdb
+number 1500
+inside box -19. -19. -19. 19. 19. 19.
+end structure
