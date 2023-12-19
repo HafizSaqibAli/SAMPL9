@@ -1,0 +1,11 @@
+source leaprc.gaff2
+TOL = loadmol2 Toluene.mol2
+loadamberparams Toluene.frcmod
+TOL = loadpdb Toluene_Box.pdb
+#addions TOL Na+ 0 
+#addions TOL Cl- 0 
+setbox TOL centers 
+saveoff TOL TOL.lib 
+saveamberparm TOL Toluene_solv.prmtop Toluene_solv.inpcrd
+savepdb TOL Toluene_solv.pdb
+quit

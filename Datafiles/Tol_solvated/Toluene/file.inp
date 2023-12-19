@@ -1,0 +1,7 @@
+tolerance 2.0
+filetype pdb
+output Toluene_Box.pdb
+structure Toluene.pdb
+number 500
+inside box -20. -20. -20. 20. 20. 20.
+end structure
