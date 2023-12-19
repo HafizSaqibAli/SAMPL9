@@ -1,7 +1,7 @@
 # Energy-entropy multiscale cell correlation method to predict toluene–water log P in the SAMPL9 challenge
 
 <p align="center">
-  <img width="392" alt="image" src="https://github.com/HafizSaqibAli/SAMPL9/assets/88040364/4daf7b39-8393-4470-a4c7-06b138377474">
+  <img width="392" alt="image" src="SAMPL9.tiff">
 </p>
 
 # Abstract
